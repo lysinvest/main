@@ -1,19 +1,8 @@
-version: "3"
-
+version: '2'
 services:
-  nginx:
-    build: ./main-nginx
-    image : main-nginx:1.0.0
-    container_name: main-nginx
-    links:
-      - main:main
+  helloworld:
+    image: 192.168.2.124:5000/app/helloworld:${TAG}
+    stdin_open: true
+    tty: true
     ports:
-      - "80:80"
-    restart: always
-  main:
-    build: ./main-master
-    image : main-master:1.0.0
-    container_name: main-master
-    ports:
-      - "7000:7000"
-    restart: always
+      - 3000:5000/tcp

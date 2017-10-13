@@ -1,9 +1,0 @@
-<div class="md-form form-sm" *ngIf="formGroup.controls[name]" [formGroup]="formGroup">
-  <i *ngIf="glyph" class="{{glyph}} prefix" [ngClass]="{'active':value}" style="color:#01579b;"></i>
-  <input type="text" id="{{name}}" class="form-control editcomp" formControlName="{{name}}" [ngClass]="{'invalid':error}" [readonly]="readonly" #edit>  
-  <label for="{{name}}" [ngClass]="{'active':value}" style="top:.5rem" style="text-overflow: ellipsis; width: calc(100% - 3rem); white-space: nowrap; overflow: hidden;"><b style="color: #01579b;">{{label}} </b> <span *ngIf="required" style="color: red;">*</span></label> 
-  <span *ngIf="error" class="help-block text-danger" style="padding-left:34px">
-    <b> {{ error }} </b>
-  </span> 
-</div>
-

@@ -1,27 +1,26 @@
+node('docker') {
+  def app
+  def commit_id
 
-node ('master') {
-  stage ('checkout') {
-      echo 'checkout before'
-     git url: 'https://github.com/lysinvest/main'
-        sh "docker --version"
-      echo 'checkout after'
+  stage('initialize') {
+    git([url: 'https://github.com/asgpha/node-js-sample.git', branch: 'master'])
+
+    sh 'git rev-parse HEAD > .git/commit-id'
+    commit_id = readFile('.git/commit-id').trim()
   }
-  stage ('Unit Tests') {
-      echo 'Unit Tests'
-  }
-  stage ('automated Test') {
-    echo 'automated Test'
-    parallel (
-      Sonar : {
-        node('master') {
-          echo 'Quality Tests'
-        }
-      },
-      functionnal : {
-        node('master') {
-          echo 'Functionnal Tests'
-        }
+
+  stage('build') {
+    docker.withRegistry('http://192.168.2.124:5000') {
+      app = docker.build('app/helloworld')
+
+      stage('publish') {
+        app.push(commit_id)
       }
-    )
+    }
+  }
+
+  stage('deploy') {
+    env.TAG = "${commit_id}"
+    sh 'rancher up -p -c -d --force-upgrade -s app helloworld'
   }
 }

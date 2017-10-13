@@ -1,5 +1,1 @@
-/main-master/aot/
-/main-master/build/
-/main-master/dist/
-/main-master/node_modules/
-/node_modules/
+node_modules
