@@ -1,6 +1,9 @@
+
 node ('master') {
   stage ('checkout') {
-      echo 'checkout'
+      echo 'checkout before'
+     git url: 'https://github.com/lysinvest/main'
+      echo 'checkout after'
   }
   stage ('Unit Tests') {
       echo 'Unit Tests'
