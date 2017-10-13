@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-6 col-lg-5 login-form mx-auto float-none">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onPost()" novalidate>
+                    <div class="text-center">
+                        <h3><i class="fa fa-lock"></i> Login:</h3>
+                        <hr class="mt-2 mb-4">
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                        <label for="email" class="">{{ ui.email }}</label>
+                        <span *ngIf="emailError" class="help-block text-danger" style="padding-left:34px">
+                        <b> {{ ui.typeEmail }} </b>
+                    </span>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" class="form-control" id="password" formControlName="password">
+                        <label for="password" class="">{{ ui.password }}</label>
+                        <span *ngIf="passwordError" class="help-block text-danger" style="padding-left:34px">
+                        <b> {{ ui.typePassword }} </b>
+                    </span>
+                    </div>
+                    <div class="md-form">
+                        <span *ngIf="loginError" class="help-block text-danger" style="padding-left:34px">
+                        <b> {{ ui.loginError }} </b>
+                    </span>
+                    </div>
+                    <div class="text-center">
+<!--                        <button class="btn btn-primary">Login</button> -->
+                                            <button type="submit" class="btn btn-primary pull-right">Connexion</button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <div class="options">
+                    <p>Not a member? <a href="#">Sign Up</a></p>
+                    <p>Forgot <a href="#">Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="col-md-6 col-lg-5 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onPost()" novalidate>
+                <div class="text-center">
+                    <h3><i class="fa fa-lock"></i> {{ ui.title }}</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <label for="email" class="">{{ ui.email }}</label>
+                    <span *ngIf="emailError" class="help-block text-danger" style="padding-left:34px">
+                    <b> {{ ui.typeEmail }} </b>
+                    </span>
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <label for="password" class="">{{ ui.password }}</label>
+                    <span *ngIf="passwordError" class="help-block text-danger" style="padding-left:34px">
+                    <b> {{ ui.typePassword }} </b>
+                    </span>
+                </div>
+                <div class="md-form form-sm">
+                    <span *ngIf="loginError" class="help-block text-danger" style="padding-left:34px">
+                    <b> {{ ui.loginError }} </b>
+                    </span>
+                </div>
+                <div class="md-form form-sm">
+                    <button type="submit" class="btn btn-primary pull-right">Connexion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->

@@ -1,0 +1,35 @@
+.navbar-btn {
+  padding: .5rem 1rem;
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+  color: #01579b;
+}
+
+input[type="text"]::-moz-placeholder {
+  color: #01579b;
+}
+
+input[type="text"]:-ms-input-placeholder {
+  color: #01579b;
+}
+
+input[type="text"]:-moz-placeholder {
+  color: #01579b;
+}
+
+
+td {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

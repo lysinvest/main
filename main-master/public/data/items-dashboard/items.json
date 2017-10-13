@@ -1,0 +1,17 @@
+[
+  {
+    "name": "continents-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/continents-list"
+  },
+  {
+    "name": "countries-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/countries-list"
+  },
+  {
+    "name": "cities-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/cities-list"
+  }
+]

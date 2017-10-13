@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  nginx:
+    build: ./main-nginx
+    image : main-nginx:1.0.0
+    container_name: main-nginx
+    links:
+      - main:main
+    ports:
+      - "80:80"
+    restart: always
+  main:
+    build: ./main-master
+    image : main-master:1.0.0
+    container_name: main-master
+    ports:
+      - "7000:7000"
+    restart: always

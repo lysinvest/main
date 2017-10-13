@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+    "outDir": "build/"
+  },
+  "files": [
+    "./src/app/modules/cities-list/form-list.module.ts",
+    "./src/app/modules/file-form/file-form.module.ts",
+    "./src/app/modules/meeting-form/meeting-form.module.ts",
+    "./src/app/modules/meetings-list/meetings-list.module.ts",
+    "./src/app/modules/contacts-list/contacts-list.module.ts",
+    "./src/app/modules/files-list/files-list.module.ts",
+    "./src/app/modules/invoices-list/invoices-list.module.ts",
+    "./src/app/modules/customer-form/customer-form.module.ts",
+    "./src/app/modules/invoice-form/invoice-form.module.ts",
+    "./src/app/modules/prospects-list/prospects-list.module.ts",
+    "./src/app/modules/customers-list/customers-list.module.ts",
+    "./src/app/modules/continents-list/continents-list.module.ts",
+    "./src/app/modules/continent-form/continent-form.module.ts",
+    "./src/app/modules/languages-list/languages-list.module.ts",
+    "./src/app/modules/statistics/statistics.module.ts",
+    "./src/app/modules/example/example.module.ts",
+    "./src/app/modules/login/login.module.ts",
+    "./src/app/modules/about/about.module.ts",
+    "./src/app/modules/settings/settings.module.ts",
+    "./src/app/modules/contact/contact.module.ts",
+    "./src/app/modules/support/support.module.ts",
+    "./src/app/modules/dashboard/dashboard.module.ts",
+    "./src/app/modules/home/home.module.ts",
+    "./src/app/modules/notfound/notfound.module.ts",
+    "./src/app/app-browser.module.ts",
+    "./src/main.browser-aot.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "./src/app/app-browser.module#AppBrowserModule",
+    "genDir": "aot",
+    "skipMetadataEmit": true
+  },
+  "exclude": [
+    "node_modules/*",
+    "**/*.spec.ts"
+  ]
+}

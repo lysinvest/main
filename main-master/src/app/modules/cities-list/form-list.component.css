@@ -1,0 +1,36 @@
+td {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+  color: #e0e0e0;
+}
+
+input[type="text"]::-moz-placeholder {
+  color: #e0e0e0;
+}
+
+input[type="text"]:-ms-input-placeholder {
+  color: #e0e0e0;
+}
+
+input[type="text"]:-moz-placeholder {
+  color: #e0e0e0;
+}
+
+.navbar-btn-cde  {
+  padding: .5rem;
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+*/ .table a {
+  margin-left: 0px;
+}
+
+h6 {
+  padding: 20px 15px 20px 15px;
+  margin: 0
+}
