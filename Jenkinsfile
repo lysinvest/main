@@ -3,7 +3,7 @@ node ('master') {
   stage ('checkout') {
       echo 'checkout before'
      git url: 'https://github.com/lysinvest/main'
-        sh "docker-compose up -d"
+        sh "docker --version"
       echo 'checkout after'
   }
   stage ('Unit Tests') {
