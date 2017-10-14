@@ -18,7 +18,7 @@ node('registry') {
   }  */
 
   stage('Build image') {
-    app = docker.build("getintodevops/hellonode")
+    app = docker.build("momo")
   }
 
 }
