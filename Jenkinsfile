@@ -1,4 +1,4 @@
-node('master') {
+node('registry') {
   def app
   def commit_id
 
