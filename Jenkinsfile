@@ -15,7 +15,7 @@ node('master') {
 
   stage('Build image') {
     /*app = docker.build("getintodevops/hellonode")*/
-    sh 'docker-compose up -d'
+    sh 'sudo docker-compose up -d'
   }  
 
 }
