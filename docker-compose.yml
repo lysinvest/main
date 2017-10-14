@@ -1,8 +1,10 @@
-version: '2'
+version: "3"
+
 services:
-  helloworld:
-    image: 192.168.2.124:5000/app/helloworld:${TAG}
-    stdin_open: true
-    tty: true
+  nginx:
+    build: ./main-nginx
+    image : main-nginx:1.0.0
+    container_name: main-nginx
     ports:
-      - 3000:5000/tcp
+      - "80:80"
+    restart: always

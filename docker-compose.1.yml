@@ -1,0 +1,8 @@
+version: '2'
+services:
+  helloworld:
+    image: 192.168.2.124:5000/app/helloworld:${TAG}
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:5000/tcp
