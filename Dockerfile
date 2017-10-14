@@ -1,13 +1,10 @@
-# use a node base image
-FROM node:7-onbuild
-
-# set maintainer
-LABEL maintainer "chendra@gmail.com"
-
-# set a health check
-#HEALTHCHECK --interval=5s \
-#            --timeout=5s \
- #           CMD curl -f http://127.0.0.1:8000 || exit 1
-
-# tell docker what port to expose
-EXPOSE 8000
+FROM ubuntu:16.04
+MAINTAINER Maintaner Name
+RUN apt-get update
+RUN apt-get install -y nano wget dialog net-tools
+RUN apt-get install -y nginx  
+RUN rm -v /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+EXPOSE 80
+CMD service nginx start
