@@ -8,4 +8,10 @@ node('master') {
     git([url: 'https://github.com/lysinvest/main', branch: 'master'])
     echo 'git code'
    }
+
+
+
+  stage('build') {
+  }
+
 }
