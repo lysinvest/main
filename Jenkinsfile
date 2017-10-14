@@ -12,6 +12,7 @@ node('master') {
 
 
   stage('build') {
+    sh 'docker-compose up -d'
   }
 
 }
