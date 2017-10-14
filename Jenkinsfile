@@ -9,10 +9,8 @@ node('master') {
     echo 'git code'
    }
 
-
-
   stage('build') {
-    sh 'docker-compose up -d'
+    /*sh 'docker-compose up -d'*/
   }
 
 }
