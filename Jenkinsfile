@@ -29,6 +29,9 @@ node ('master') {
     sh "mkdir -p output"
     writeFile file: "output/somefile", text: "Hey look, some text."
     stash name: "first-stash", includes: "output/*"  
+    
+
+    sh 'docker-compose up -d'
 
 /*    sh 'cd ~/'
     sh 'ls -a'
