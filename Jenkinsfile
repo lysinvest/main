@@ -1,6 +1,7 @@
 
 node ('master') {
-  echo 'hello 1150'
+  
+  echo 'Checkout source code from github'
 
   checkout([$class: 'GitSCM', 
   branches: [[name: '*/master']], 
