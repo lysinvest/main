@@ -29,7 +29,7 @@ node ('master') {
     sh "mkdir -p output"
     writeFile file: "output/somefile", text: "Hey look, some text."
     stash name: "first-stash", includes: "output/*"  
-    
+
 
     sh 'docker-compose up -d'
 
@@ -57,6 +57,8 @@ node ('registry') {
     }
     sh "ls -la ${pwd()}"
     sh "ls -la ${pwd()}/first-stash"    
+
+    sh 'docker-compose up -d'
 
   }
 
