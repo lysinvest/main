@@ -26,22 +26,23 @@ node ('master') {
     sh 'docker-compose --version'
 
 
-/*    sh "mkdir -p output"
+    sh "mkdir -p output"
     writeFile file: "output/somefile", text: "Hey look, some text."
-    stash name: "first-stash", includes: "output/*"    */
-    sh 'cd ~/'
+    stash name: "first-stash", includes: "output/*"  
+    
+/*    sh 'cd ~/'
     sh 'ls -a'
-    sh 'docker-compose --version'
+    sh 'docker-compose --version'*/
 
   }
 
 }
 
-/*node ('registry') {
+node ('registry') {
 
   stage ('production') {
 
-    unstash  includes: '**', name: 'SOURCE_CODE'
+//    unstash  includes: '**', name: 'SOURCE_CODE'
 
     sh 'cat /etc/hostname'
     sh 'docker --version'
