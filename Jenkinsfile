@@ -1,9 +1,15 @@
 
 node ('master') {
 
+  env.BN = VersionNumber([
+        versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
+        projectStartDate : '2017-02-09', 
+        versionPrefix : 'v1.'
+    ])
+
   stage ('provision') {
 
-    echo 'Checkout source code from github'
+    echo 'Checkout source code from github ' + env.BN
 
     checkout([$class: 'GitSCM', 
     branches: [[name: '*/master']], 
