@@ -31,7 +31,7 @@ node ('master') {
     stash name: "first-stash", includes: "output/*"  
 
 
-    sh 'docker-compose up -d'
+/*    sh 'docker-compose up -d'*/
 
 /*    sh 'cd ~/'
     sh 'ls -a'
@@ -53,6 +53,12 @@ node ('frontend') {
     sh 'docker --version'
     sh 'docker-compose --version'
 
+    checkout([$class: 'GitSCM', 
+    branches: [[name: '*/master']], 
+    doGenerateSubmoduleConfigurations: false, 
+    extensions: [], 
+    submoduleCfg: [], 
+    userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:lysinvest/main.git']]])
 
     dir("first-stash") {
         unstash "first-stash"
