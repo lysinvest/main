@@ -48,6 +48,13 @@ node ('registry') {
     sh 'docker --version'
     sh 'docker-compose --version'
 
+
+    dir("first-stash") {
+        unstash "first-stash"
+    }
+    sh "ls -la ${pwd()}"
+    sh "ls -la ${pwd()}/first-stash"    
+
   }
 
 }
