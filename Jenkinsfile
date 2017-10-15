@@ -44,7 +44,6 @@ node ('master') {
 node ('frontend') {
 
   stage ('production01') {
-
 //    unstash  includes: '**', name: 'SOURCE_CODE'
 
     sh 'cat /etc/hostname'
