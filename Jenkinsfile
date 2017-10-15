@@ -1,5 +1,5 @@
 
-node ('registry') {
+node ('master') {
 
   env.BN = VersionNumber([
         versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
@@ -18,14 +18,24 @@ node ('registry') {
     submoduleCfg: [], 
     userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:lysinvest/main.git']]])
 
-
     echo 'Stash the project source code ...'
     stash includes: '**', name: 'SOURCE_CODE'
 
     sh 'cat /etc/hostname'
     sh 'docker --version'
     sh 'docker-compose --version'
-    sh 'docker-compose up -d'
+
+  }
+
+}
+
+node ('registry') {
+
+  stage ('production') {
+
+    sh 'cat /etc/hostname'
+    sh 'docker --version'
+    sh 'docker-compose --version'
 
   }
 
