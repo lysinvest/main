@@ -1,5 +1,5 @@
 
-node ('master') {
+node ('registry') {
 
   env.BN = VersionNumber([
         versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
@@ -21,7 +21,9 @@ node ('master') {
 
     echo 'Stash the project source code ...'
     stash includes: '**', name: 'SOURCE_CODE'
-    
+
+    sh 'cat /etc/hostname'
+
   }
 
 }
