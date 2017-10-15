@@ -33,6 +33,8 @@ node ('registry') {
 
   stage ('production') {
 
+    unstash  includes: '**', name: 'SOURCE_CODE'
+    
     sh 'cat /etc/hostname'
     sh 'docker --version'
     sh 'docker-compose --version'
