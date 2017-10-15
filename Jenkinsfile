@@ -41,7 +41,7 @@ node ('master') {
 
 }
 
-node ('registry') {
+node ('frontend') {
 
   stage ('production01') {
 
