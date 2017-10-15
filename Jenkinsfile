@@ -31,6 +31,7 @@ node ('master') {
     stash name: "first-stash", includes: "output/*"    */
     sh 'cd ~/'
     sh 'ls -a'
+    sh 'docker-compose --version'
 
   }
 
