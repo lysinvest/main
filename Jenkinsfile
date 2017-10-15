@@ -26,9 +26,11 @@ node ('master') {
     sh 'docker-compose --version'
 
 
-    sh "mkdir -p output"
+/*    sh "mkdir -p output"
     writeFile file: "output/somefile", text: "Hey look, some text."
-    stash name: "first-stash", includes: "output/*"    
+    stash name: "first-stash", includes: "output/*"    */
+    sh 'cd ~/'
+    sh 'ls -a'
 
   }
 
