@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nginx:
-    build: ./main-nginx
+    build: ./
     image : main-nginx:1.0.0
     container_name: main-nginx
     ports:
