@@ -18,28 +18,33 @@ node ('master') {
     submoduleCfg: [], 
     userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:lysinvest/main.git']]])
 
-    echo 'Stash the project source code ...'
-    stash includes: '**', name: 'SOURCE_CODE'
+/*    echo 'Stash the project source code ...'
+    stash includes: '**', name: 'SOURCE_CODE'*/
 
     sh 'cat /etc/hostname'
     sh 'docker --version'
     sh 'docker-compose --version'
+
+
+    sh "mkdir -p output"
+    writeFile file: "output/somefile", text: "Hey look, some text."
+    stash name: "first-stash", includes: "output/*"    
 
   }
 
 }
 
-node ('registry') {
+/*node ('registry') {
 
   stage ('production') {
 
     unstash  includes: '**', name: 'SOURCE_CODE'
-    
+
     sh 'cat /etc/hostname'
     sh 'docker --version'
     sh 'docker-compose --version'
 
-  }
+  }*/
 
 }
 
