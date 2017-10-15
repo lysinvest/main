@@ -25,6 +25,7 @@ node ('registry') {
     sh 'cat /etc/hostname'
     sh 'docker --version'
     sh 'docker-compose --version'
+    sh 'docker-compose up -d'
 
   }
 
