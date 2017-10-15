@@ -40,7 +40,7 @@ node ('master') {
 
 node ('registry') {
 
-  stage ('production') {
+  stage ('production01') {
 
 //    unstash  includes: '**', name: 'SOURCE_CODE'
 
