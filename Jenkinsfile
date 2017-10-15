@@ -1,5 +1,5 @@
 
-node ('master') {
+node ('registry') {
 
   env.BN = VersionNumber([
         versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
