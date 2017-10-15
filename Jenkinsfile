@@ -46,6 +46,7 @@ node ('frontend') {
   stage ('production01') {
 //    unstash  includes: '**', name: 'SOURCE_CODE'
 
+
     sh "mkdir -p outputf"
     writeFile file: "outputf/somefile", text: "Hey look, some text."
 
