@@ -17,6 +17,11 @@ node ('master') {
     extensions: [], 
     submoduleCfg: [], 
     userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:lysinvest/main.git']]])
+
+
+    echo 'Stash the project source code ...'
+    stash includes: '**', name: 'SOURCE_CODE'
+    
   }
 
 }
