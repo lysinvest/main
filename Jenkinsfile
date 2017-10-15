@@ -48,6 +48,6 @@ node ('registry') {
     sh 'docker --version'
     sh 'docker-compose --version'
 
-  }*/
+  }
 
 }
