@@ -46,5 +46,3 @@ node ('registry') {
 
   }*/
 
-}
-
