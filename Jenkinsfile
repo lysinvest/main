@@ -7,7 +7,7 @@ node ('master') {
         versionPrefix : 'v1.'
     ])
 
-  stage ('provision') {
+  stage ('provision on master') {
 
     echo 'Checkout source code from github ' + env.BN
 
@@ -43,7 +43,7 @@ node ('master') {
 
 node ('frontend') {
 
-  stage ('production01') {
+  stage ('production on frontend') {
 //    unstash  includes: '**', name: 'SOURCE_CODE'
 
 
