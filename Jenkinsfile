@@ -41,9 +41,9 @@ node ('master') {
 
 }
 
-node ('frontend') {
+node ('backend') {
 
-  stage ('production on frontend') {
+  stage ('production on backend') {
 //    unstash  includes: '**', name: 'SOURCE_CODE'
 
 
