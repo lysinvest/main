@@ -1,0 +1,67 @@
+[
+  {
+    "name": "movies-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/movies-list"
+  },
+  {
+    "name": "wget",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/wget"
+  },
+  {
+    "name": "continents-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/continents-list"
+  },
+  {
+    "name": "countries-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/countries-list"
+  },
+  {
+    "name": "languages-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/languages-list"
+  },
+  {
+    "name": "items-list",
+    "img": "data/img/items-dashboard/sophistique_networking_baud_128.png",
+    "link": "/items-list"
+  },
+  {
+    "name": "item-form",
+    "img": "data/img/items-dashboard/sophistique_networking_groupware_128.png",
+    "link": "/item-form"
+  },
+  {
+    "name": "item-tab",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/item-tab"
+  },
+  {
+    "name": "Home",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/home"
+  },
+  {
+    "name": "About",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/about"
+  },
+  {
+    "name": "Example",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/example"
+  },
+  {
+    "name": "Wiki",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/wiki"
+  },
+  {
+    "name": "Wikitext",
+    "img": "data/img/items-dashboard/sophistique_networking_symmetric_network_128.png",
+    "link": "/wikitext"
+  }
+]

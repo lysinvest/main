@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "../node_modules/@types/"
+    ],
+    "outDir": "../build/"
+  },
+  "compileOnSave": true,
+  "files": [
+    "./app/modules/cities-list/form-list.module.ts",
+    "./app/modules/file-form/file-form.module.ts",
+    "./app/modules/meeting-form/meeting-form.module.ts",
+    "./app/modules/meetings-list/meetings-list.module.ts",
+    "./app/modules/contacts-list/contacts-list.module.ts",
+    "./app/modules/files-list/files-list.module.ts",
+    "./app/modules/invoices-list/invoices-list.module.ts",
+    "./app/modules/customer-form/customer-form.module.ts",
+    "./app/modules/invoice-form/invoice-form.module.ts",
+    "./app/modules/prospects-list/prospects-list.module.ts",
+    "./app/modules/customers-list/customers-list.module.ts",
+    "./app/modules/continents-list/continents-list.module.ts",
+    "./app/modules/languages-list/languages-list.module.ts",
+    "./app/modules/statistics/statistics.module.ts",
+    "./app/modules/example/example.module.ts",
+    "./app/modules/login/login.module.ts",
+    "./app/modules/support/support.module.ts",
+    "./app/modules/contact/contact.module.ts",
+    "./app/modules/about/about.module.ts",
+    "./app/modules/settings/settings.module.ts",
+    "./app/modules/dashboard/dashboard.module.ts",
+    "./app/modules/home/home.module.ts",
+    "./app/modules/notfound/notfound.module.ts",
+    "./main.browser.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "./app/app-browser.module#AppBrowserModule"
+  },
+  "exclude": [
+    "node_modules/*",
+    "**/*.spec.ts",
+    "**/*-aot.ts",
+    "node_modules",
+    "aot",
+    "build",
+    "dist"
+  ]
+}

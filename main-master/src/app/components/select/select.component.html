@@ -1,0 +1,58 @@
+<select [class]="class" id="{{name}}" name="{{name}}" #select>
+    <option *ngFor="let option of model.options" 
+    [value]="option.value" 
+    [selected]="option.value==model.value">
+    {{option.label}}
+    </option> 
+</select>
+
+<!--<option value="1" selected="{{model==1}}">Option 1 </option>
+<option value="2" selected="{{model==2}}">Option 2 </option>
+<option value="3" selected="{{model==3}}">Option 3 </option> -->
+<!--<option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option> -->
+<!--                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option> -->
+<!--<select id="{{name}}" name="{{name}}" class="mdb-select" [(ngModel)]="optionSelected" #select>
+          <option *ngFor="let option of options" [value]="option.value">{{option.code}}</option>
+</select> -->
+
+
+<!--<select id="{{name}}" name="{{name}}" class="mdb-select">
+        <option *ngFor="let option of options" >{{option.code}}</option>
+        <option value="" disabled selected>{{ choose }}</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+    <label>Example label</label>-->
+
+
+<!--<ul>
+    <li *ngFor="let option of options">{{option.code}}</li>
+</ul> -->
+
+<!--<ul>
+    <li *ngFor="let option of options">
+        {{ option.code }}
+    </li>
+</ul> -->
+
+<!--<h1>{{ optionSelected }}</h1>
+<select class="browser-default" id="{{name}}" name="{{name}}" ngModel="optionSelected" #select>
+        <option value="" disabled selected>{{ optionSelected }}</option>
+    <option *ngFor="let option of options" [value]="option.value">{{option.code}}</option>
+</select> -->
+
+<!--        <option value="" disabled selected>Choose a state</option> -->
+<!--<select class="browser-default" id="{{name}}" name="{{name}}" ngModel="optionSelected" #select>
+    <option *ngFor="let option of options" [value]="option.value">{{option.code}}</option>
+</select>-->
+
+<!--                <select class="mdb-select" #select>
+                            <option *ngFor="let option of options" [value]="option.value" [selected]="priority==option.value">{{option.label}}</option>
+                        </select> -->
+<!--<br> {{model.options| json}}<br>-->
+<!--{{priority}}<br> -->

@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12 mb-1">
+    <div class="card">
+      <div class="sticky card-header cardform-header">
+        <a (click)="onPrevious()" id="btnBack" name="btnBack" class="navbar-btn float-left waves-effect waves-light"><i class="fa fa-arrow-left fa-lg"></i></a>
+        <h5 class="card-title float-left"><i style="color: #01579b !important"></i> <span class="hidden-sm-down"> <b>{{ui.formName}}</b> </span>
+          <font color="#002f6c"><b> : {{item.number}}</b></font>
+        </h5>
+        <div class="float-right text-right">
+<!--          <div class="btn-group">
+            <a class="navbar-btn waves-effect waves-light" (click)="onChangeMode()"><i class="fa fa-edit fa-lg" style="color:black;"></i></a>
+            <a class="navbar-btn waves-effect waves-light" (click)="onCreate()"><i class="fa fa-plus fa-lg" style="color:black;"></i></a>
+            <a class="navbar-btn waves-effect waves-light" (click)="onUpdate()"><i class="fa fa-save fa-lg" style="color:black;"></i></a>
+            <a class="navbar-btn waves-effect waves-light" (click)="onDelete()"><i class="fa fa-remove fa-lg" style="color:black;"></i></a>
+          </div> -->
+        </div>
+      </div>
+      <div class="card-header grid-header">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-5">
+              <form [formGroup]="form">
+                <div class="row">
+                  <div class="col-md-6">
+                    <edit [formGroup]="form" required="true" glyph="fa fa-sticky-note-o" name="id" label="{{ ui.id }}" value="{{item.id}}"
+                      length="24" [(error)]="formErrors.id"></edit>
+                  </div>
+                  <div class="col-md-6">
+                    <edit [formGroup]="form" required="true" glyph="fa fa-sticky-note-o" name="number" label="{{ui.number}}" value="{{item.number}}"
+                      length="24" [(error)]="formErrors.number"></edit>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <edit #selectedField [formGroup]="form" required="true" glyph="fa fa-building-o" name="customer" label="{{ ui.customer }}" value="{{item.customer}}"
+                      length="24" [(error)]="formErrors.customer"></edit>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <edit [formGroup]="form" required="true" glyph="fa fa-envelope-o" name="date" label="{{ ui.date}}" value="{{item.date}}"
+                      length="24" [(error)]="formErrors.date"></edit>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <edit [formGroup]="form" required="true" glyph="fa fa-envelope-o" name="amount" label="{{ ui.amount}}" value="{{item.amount}}"
+                      length="24" [(error)]="formErrors.amount"></edit>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

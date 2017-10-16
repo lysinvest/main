@@ -1,0 +1,3 @@
+<select id="{{name}}" name="{{name}}" class="mdb-select" [(ngModel)]="optionSelected" #select>    <!--  colorful-select dropdown-primary -->
+          <option *ngFor="let option of options" [value]="option.value">{{option.code}}</option>
+</select>

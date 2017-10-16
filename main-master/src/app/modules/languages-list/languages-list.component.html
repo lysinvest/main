@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <div class="card">
+      <section class="sidebar-imgs">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="instagram-photos">
+              <li *ngFor="let item of pagedItems; let i=index" (click)="onSelect(item,i)">
+                <div class="view overlay hm-white-slight z-depth-1">
+                  <!--                  <img class="img-thumbnail" src="params/image/ar.png" alt="Instagram photo cap"> -->
+
+                  <img class="img-fluid" src="{{ item.img }}" alt="Instagram photo cap">
+                  <a (click)="onChangeLanguage(item)">
+                    <div class="mask"></div>
+                  </a>
+                  <small>{{ item.code }}</small>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!--<div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <div class="row">
+      <div class="col-md-12 mb-1">
+        <div class="tab-content card">
+          <div class="row">
+            <div class="col-sm-12">{{ ui.title}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <section class="sidebar-imgs wow fadeIn" data-wow-delay="0.3s">
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="instagram-photos">
+                      <li *ngFor="let item of pagedItems; let i=index" (click)="onSelect(item,i)">
+                        <div class="view overlay hm-white-slight">
+                          <img class="img-fluid" src="{{ item.img }}" alt="Instagram photo cap">
+                          <a (click)="onChangeLanguage(item)">
+                            <div class="mask"></div>
+                          </a>
+                          <small>{{ item.code }}</small>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+<!--<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <div class="row">
+          <div class="col-md-12 mb-1">
+            <div class="tab-content card">
+              <div class="row">
+                <div class="divider-new">
+                  <h3 class="h3-responsive">Languages</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <section class="sidebar-imgs wow fadeIn" data-wow-delay="0.3s">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul class="instagram-photos">
+                          <li>
+                            <div class="view overlay hm-white-slight">
+                              <img class="img-fluid" src="http://api.nagathan.com/languages/img/ar.png" alt="Instagram photo cap">
+                              <a>
+                                <div class="mask"></div>
+                              </a>
+                              <small>code</small>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->

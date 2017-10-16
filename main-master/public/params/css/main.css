@@ -1,0 +1,29 @@
+body {
+    background-color: #eee;
+  }
+  
+  .side-nav .logo-sn {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+  
+  
+  .user {
+    padding: .6rem 0;
+  }
+  
+  .user-card {
+    border-bottom: 2px solid white;
+    cursor: pointer;
+  }
+  
+  .user-logo {
+    float: left;
+    margin: 1.1rem 1rem;
+  }
+  
+  .ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  

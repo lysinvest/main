@@ -1,0 +1,263 @@
+<div class="row">
+  <div class="col-md-12 mb-1">
+    <div class="card">
+      <div class="card-header grid-header">
+        <div class="grid-card-title float-left">
+          <a class="navbar-btn waves-effect waves-light" data-toggle="collapse" (click)="goBack()">
+            <i class="fa fa-arrow-left fa-lg"></i>
+          </a>
+          <!--                <input #selectedField name="searchField" [(ngModel)]="searchField" class="form-control ml-4 my-0 py-0" placeholder="{{ ui.placeholder }}" type="text"> -->
+          <input #selectedField (keydown)="handleKeyDown($event)" name="searchField" [(ngModel)]="searchField" placeholder="{{ ui.placeholder }}"
+            class="form-control grid-search-input" type="text" style="display:inline-block; max-width: 150px;">
+          <a class="waves-effect waves-light" style="padding-right: 15px;" (click)="onSearch()">
+            <i class="fa fa-search fa-lg"></i>
+          </a>
+          <span class="hidden-sm-down" style="color:gray; padding-left: 25px;" i18n> {{ results }} ({{ resultsDuration }} ms) </span>
+        </div>
+        <div class="float-right text-right">
+          <div class="btn-group">
+            <a class="navbar-btn waves-effect waves-light" (click)="onCreate()"><i class="fa fa-plus fa-lg" style="color:black;"></i></a>
+            <!--            <a class="navbar-btn waves-effect waves-light"><i class="fa fa-print fa-lg" style="color:black;"></i></a> -->
+          </div>
+        </div>
+      </div>
+      <div class="card-header grid-header">
+        <div *ngIf="!resultsActive" class="row mb-1">
+          <div class="col-md-12">
+            <div class="card-block card-spinner pt-0">
+              <div *ngIf="loading" class="progress primary-color-dark">
+                <div class="indeterminate"></div>
+              </div>
+              <div *ngIf="!loading" class="progress-none">
+              </div>
+            </div>
+            <div *ngIf="!loading">
+              <div *ngIf="!resultsActive" class="col-md-6">
+                <div class="card card-info text-center z-depth-2">
+                  <div class="card-block">
+                    <p class="white-text">
+                      <br> Aucun resultats pour la sélection effectuée.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="resultsActive" class="row mb-0">
+          <div class="col-md-12">
+            <div class="card-block card-spinner pt-0">
+              <div *ngIf="loading" class="progress primary-color-dark">
+                <div class="indeterminate"></div>
+              </div>
+              <div *ngIf="!loading" class="progress-none">
+              </div>
+            </div>
+            <div class="card-block pt-0">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover table-sm">
+                  <thead>
+                    <tr>
+                      <th>{{ ui.number }}</th>
+                      <!--                    <th>{{ ui.position }}</th> -->
+                      <!--                    <th>{{ ui.code }}</th> -->
+                      <th>{{ ui.name }}</th>
+                      <th>{{ ui.email }}</th>
+                      <th>{{ ui.phone }}</th>
+                      <th>{{ ui.website }}</th>
+                      <!--                    <th>{{ ui.actions }}</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of pagedItems; let i=index" (click)="onSelectItem(item,i)">
+                      <!--                    <td>{{i + 1}}</td> -->
+                      <td style="cursor: pointer;">{{ i + 1 + (pagination.currentPage - 1) * pagination.perPage }}</td>
+                      <!--                    <td>{{item.code}}</td> -->
+                      <td style="cursor: pointer;">{{item.name}}</td>
+                      <td style="cursor: pointer;">{{item.email}}</td>
+                      <td style="cursor: pointer;">{{item.phone}}</td>
+                      <td style="cursor: pointer;">{{item.website}}</td>
+                      <!--                    <td>
+                      <a class="teal-text" (click)="onSelectItemApi(item,i)"><i class="fa fa-pencil"></i></a>
+                    </td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="resultsActive" class="row mb-0">
+          <div class="card-block pt-0">
+            <div class="col-md-12">
+              <!--              <div *ngIf="loading" class="text-center" style="bottom: 2rem; position: relative;">
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color: #002f6c;"></i>
+              </div> -->
+
+
+
+
+              <nav>
+                <div class="pull-left">
+                  <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination pagination-sm pg-bluegrey">
+                    <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === 1}">
+                      <a class="page-link" aria-label="First" (click)="setPage(1,pagination.perPage)">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    </li>
+                    <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === 1}">
+                      <a class="page-link" aria-label="Previous" (click)="setPage(pagination.currentPage - 1,pagination.perPage)">
+                      <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                    </li>
+                    <li class="page-item" *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}">
+                      <a class="page-link" (click)="setPage(page,pagination.perPage)">{{page}}</a>
+                    </li>
+                    <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                      <a class="page-link" aria-label="Next" (click)="setPage(pagination.currentPage + 1,pagination.perPage)">
+                      <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                    </li>
+                    <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                      <a class="page-link" aria-label="Last" (click)="setPage(pagination.totalPages,pagination.perPage)">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="pull-right">
+                  <ul class="pagination pagination-sm pg-bluegrey">
+                    <li *ngIf="this.pagination.totalItems > 5" class="page-item" [ngClass]="{active:offset == 5}"><a class="page-link" (click)="onSelectPerPage(5)">5</a></li>
+                    <li *ngIf="this.pagination.totalItems > 5" class="page-item" [ngClass]="{active:offset == 10}"><a class="page-link" (click)="onSelectPerPage(10)">10</a></li>
+                    <li *ngIf="this.pagination.totalItems > 10" class="page-item" [ngClass]="{active:offset == 20}"><a class="page-link" (click)="onSelectPerPage(20)">20</a></li>
+                    <li *ngIf="this.pagination.totalItems > 40" class="page-item" [ngClass]="{active:offset == 50}"><a class="page-link" (click)="onSelectPerPage(50)">50</a></li>
+                    <li *ngIf="this.pagination.totalItems > 50" class="page-item" [ngClass]="{active:offset == 100}"><a class="page-link" (click)="onSelectPerPage(100)">100</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<div class="row">
+  <div class="col-md-12 mb-1">
+    <div class="card">
+      <div class="list-panel">
+        <div class="row mx-3 text-center">
+          <div class="col-md-4">
+            <div class="md-form input-group mt-1">
+              <form class="form-inline waves-effect waves-light">
+                <input #selectedField name="searchField" [(ngModel)]="searchField" class="form-control ml-4 my-0 py-0" placeholder="{{ ui.placeholder }}" type="text">
+                <button class="btn btn-ins btn-sm ml-2 waves-effect waves-light" (click)="onSearch()"><i class="fa fa-search"></i> </button>
+                <button class="btn btn-ins btn-sm ml-2 waves-effect waves-light" (click)="onCreate()"><i class="fa fa-plus"></i> </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="md-form input-group mt-1">
+              <div class="btn-group">
+                <a class="btn btn-sm btn-default"><i class="fa fa-magic left"></i> {{ ui.filter }}{{ ui.filteraaaa }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="md-form input-group mt-1">
+              <div class="btn-group">
+                <h6>{{ results }} ({{ resultsDuration }} ms)</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!resultsActive" class="card card-block">
+        <p class="card-text">{{ resultsWarning }}</p>
+      </div>
+
+      <div *ngIf="resultsActive" class="row mb-0">
+        <div class="col-md-12">
+          <div class="card-block pt-0">
+            <table class="table table-bordered table-hover table-sm">
+              <thead>
+                <tr>
+                  <th>{{ ui.number }}</th>
+                  <th>{{ ui.position }}</th>
+                  <th>{{ ui.code }}</th>
+                  <th>{{ ui.name }}</th>
+                  <th>{{ ui.href }}</th>
+                  <th>{{ ui.actions }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of pagedItems; let i=index" (click)="onSelectItem(item,i)">
+                  <td>{{i + 1}}</td>
+                  <td>{{ i + 1 + (pagination.currentPage - 1) * pagination.perPage }}</td>
+                  <td>{{item.code}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.links[0].href}}</td>
+                  <td>
+                    <a class="teal-text" (click)="onSelectItemApi(item,i)"><i class="fa fa-pencil"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="resultsActive" class="row mb-0">
+        <div class="card-block pt-0">
+          <div class="col-md-12">
+            <nav>
+              <div class="pull-left">
+                <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination pagination-sm pg-bluegrey">
+                  <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === 1}">
+                    <a class="page-link" aria-label="First" (click)="setPage(1,pagination.perPage)">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === 1}">
+                    <a class="page-link" aria-label="Previous" (click)="setPage(pagination.currentPage - 1,pagination.perPage)">
+                      <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item" *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}">
+                    <a class="page-link" (click)="setPage(page,pagination.perPage)">{{page}}</a>
+                  </li>
+                  <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                    <a class="page-link" aria-label="Next" (click)="setPage(pagination.currentPage + 1,pagination.perPage)">
+                      <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                  </li>
+                  <li *ngIf="pageBrowser" class="page-item" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                    <a class="page-link" aria-label="Last" (click)="setPage(pagination.totalPages,pagination.perPage)">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="pull-right">
+                <ul class="pagination pagination-sm pg-bluegrey">
+                  <li *ngIf="this.pagination.totalItems > 5" class="page-item" [ngClass]="{active:offset == 5}"><a class="page-link" (click)="onSelectPerPage(5)">5</a></li>
+                  <li *ngIf="this.pagination.totalItems > 5" class="page-item" [ngClass]="{active:offset == 10}"><a class="page-link" (click)="onSelectPerPage(10)">10</a></li>
+                  <li *ngIf="this.pagination.totalItems > 10" class="page-item" [ngClass]="{active:offset == 20}"><a class="page-link" (click)="onSelectPerPage(20)">20</a></li>
+                  <li *ngIf="this.pagination.totalItems > 40" class="page-item" [ngClass]="{active:offset == 50}"><a class="page-link" (click)="onSelectPerPage(50)">50</a></li>
+                  <li *ngIf="this.pagination.totalItems > 50" class="page-item" [ngClass]="{active:offset == 100}"><a class="page-link" (click)="onSelectPerPage(100)">100</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> -->
