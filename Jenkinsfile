@@ -25,14 +25,14 @@ node ('registry') {
     stage('Push image') {
         unstash "first-stash"
         try {
-            sh "docker stop main-nginx:1.0.0"
-            sh "docker rm main-nginx:1.0.0"
+            sh "docker stop main-nginx"
+            sh "docker rm main-nginx"
         } catch (Exception _) {
             echo "no container to stop"
         }
         try {
-            sh "docker stop main-master:1.0.0"
-            sh "docker rm main-master:1.0.0"
+            sh "docker stop main-master"
+            sh "docker rm main-master"
         } catch (Exception _) {
             echo "no container to stop"
         }
