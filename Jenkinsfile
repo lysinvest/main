@@ -36,6 +36,16 @@ node ('registry') {
         } catch (Exception _) {
             echo "no container to stop"
         }
+        try {
+            sh "docker rmi main-nginx:1.0.0"
+        } catch (Exception _) {
+            echo "no container to stop"
+        }
+        try {
+            sh "docker rmi main-master:1.0.0"
+        } catch (Exception _) {
+            echo "no container to stop"
+        }
         sh "docker-compose up -d"
     }
     
